@@ -307,6 +307,12 @@ const personagens = [
   vilao,
 ];
 function Maisforte(lista) {
+    console.log(" Somatório de atributos de todos os personagens:");
+    for (let p of lista) {
+        let total = p.forca + p.velocidade + p.resistencia;
+        console.log(`${p.codinome}: ${total} pontos (Força: ${p.forca}, Velocidade: ${p.velocidade}, Resistência: ${p.resistencia})`);
+        console.log("")
+    }
   let vencedor = lista[0];
   let maior = vencedor.forca + vencedor.velocidade + vencedor.resistencia;
 
