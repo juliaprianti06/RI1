@@ -306,29 +306,47 @@ const personagens = [
   personagem8,
   vilao,
 ];
-function Maisforte(lista) {
-    console.log(" Somatório de atributos de todos os personagens:");
-    for (let p of lista) {
-        let total = p.forca + p.velocidade + p.resistencia;
-        console.log(`${p.codinome}: ${total} pontos (Força: ${p.forca}, Velocidade: ${p.velocidade}, Resistência: ${p.resistencia})`);
-        console.log("")
+console.log("");
+
+for (let i = 0; i < personagens.length; i++) {
+    for (let j = i + 1; j < personagens.length; j++) {
+        const p1 = personagens[i];
+        const p2 = personagens[j];
+
+        console.log(p1.nome + ' vs ' + p2.nome);
+        console.log("======================");
+        console.log("Descrição de " + p1.nome + ":");
+        console.log(p1.descricao());
+        console.log("");
+        console.log("Descrição de " + p2.nome + ":");
+        console.log(p2.descricao());
+        console.log("");
+       
+
+        if (p1.velocidade > p2.velocidade) {
+            console.log('Maior velocidade: ' + p1.nome + '.');
+        } else if (p1.velocidade === p2.velocidade) {
+            console.log('Maior velocidade: empate');
+        } else {
+            console.log('Maior velocidade: ' + p2.nome + '.');
+        }
+
+        if (p1.forca > p2.forca) {
+            console.log('Maior força: ' + p1.nome + '.');
+        } else if (p1.forca === p2.forca) {
+            console.log('Maior força: empate');
+        } else {
+            console.log('Maior força: ' + p2.nome + '.');
+        }
+
+        if (p1.resistencia > p2.resistencia) {
+            console.log('Maior resistência: ' + p1.nome + '.');
+        } else if (p1.resistencia === p2.resistencia) {
+            console.log('Maior resistência: empate');
+        } else {
+            console.log('Maior resistência: ' + p2.nome + '.');
+        }
+
+        console.log(''); 
     }
-  let vencedor = lista[0];
-  let maior = vencedor.forca + vencedor.velocidade + vencedor.resistencia;
-
-  for (let indice = 1; indice < lista.length; indice++) {
-    let personagemAtual = lista[indice];
-    let totalPontos = personagemAtual.forca + personagemAtual.velocidade + personagemAtual.resistencia;
-
-    if (totalPontos > maior) {
-      vencedor = personagemAtual;
-      maior = totalPontos;
-    }
-  }
-
-  console.log("O vencedor é");
-  console.log(vencedor.descricao());
-  console.log("Total de pontos:", maior);
 }
-
-Maisforte(personagens);
